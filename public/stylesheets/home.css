@@ -1,0 +1,242 @@
+/* resetting default margin and setting background color */
+body{
+    margin: 0;
+    background-color: #F9F6F2;
+    height: 100%;
+}
+
+/* container for the entire content */
+.wrapper{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* container for upper section */
+.upper-container{
+    margin-top: 0;
+    margin-bottom: 2em; /* creating spcae between upper container and other content*/
+}
+
+/* styling for heading within upper container */
+.upper-container > h1{
+    margin: 0; /* resetting default margin */
+}
+
+/* container for main content */
+.inner-container{
+    height: 80%;
+    width: 90%;
+}
+
+/* Coffee table style */
+/* styling for the coffee table */
+.coffee-table{
+    width: 100%;
+    border-collapse: collapse; /* collapsing table borders */
+}
+
+.coffee-table tr{
+    height: 3rem; /* setting height for table rows*/
+}
+
+.coffee-table tr:nth-child(even){
+    background-color: #C8B9A9; /* styling alternate rows with different background color*/
+}
+
+.coffee-table th{
+    font-size: 1.5em; /* setting font size for table headers */
+}
+
+.coffee-table td{
+    text-align: center; /* aligning table data to center*/
+    font-size: 1.25em; /* setting font size data*/
+}
+
+/* styling for buttons container */
+.btns{
+    display: flex;
+    justify-content: right; /* aligning buttons to the right */
+}
+
+/* styling for buttons */
+.newRow>button{
+    background-color: #E3E1DC; /* setting background color for buttons*/
+    border: none; /* removing default button border*/
+    cursor: pointer; /* setting cursor to pointer on hover*/
+    overflow: hidden; /* hiding overflow content*/
+    outline: none; /* removing outline */
+    height: 1.5em; /* setting height for buttons */
+    width: 5em; /* setting width for buttons */
+    font-size: 1em; /* setting font size for buttons */
+    font-weight: bold; /* setting font weight for buttons */
+    border-radius: 10px; /* adding border radius to buttons */
+}
+
+.newRow>button:hover{
+    background-color: #c0beba; /* changing background color of buttons on hover*/
+}
+
+/* styling for coffee pop up container  */
+.pop-up-container{
+    position: relative; /* setting position to relative for proper positioning*/
+}
+
+/* styling for coffee form pop-up */
+.coffee-form-pop-up{
+    position: fixed; /* setting position to fixed for fixed positioning*/
+    display: none; /* hiding pop-up by default*/
+    background-color: white; /* setting background color for pop-up */
+    height: 37rem; /* setting height for pop-up */
+    width: 25rem; /* setting width for pop-up */
+    border: 1px solid black; /* adding border to pop-up */
+    border-radius: 10px; /* adding border radius to pop-up */
+    top: 50%; /* positioning pop-up at the center of the screen vertically */
+    left: 50%; /* positioning pop-up at the center of the screen horizontally */
+    transform: translate(-50%, -50%); /* centering pop-up */
+    z-index: 2; /* setting z-index to ensure pop-up is displayed above other content*/
+}
+
+/* styling for blurred background effect */
+.pop-up-blur{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* setting background color with opacity*/
+    backdrop-filter: blur(5px); /* adding blur effect to the background */
+    z-index: 1; /* setting z-index to ensure background is behind pop-up */
+}
+
+/* styling for coffee form */
+.coffee-form{
+    display: grid; /* setting display to grid for form layout */
+    place-items: center; /* centering form content*/
+    gap: 1em; /* addind gap between grid items */
+    grid-template-columns: repeat(1, 1fr); /* setting grid layout */
+}
+
+/* styling for grid items within the form */
+.grid-item{
+    display: flex; /* setting display to flex for alignment */
+    align-items: center; /* aligning items vertically */
+    justify-content: center; /* aligning items horizontally */
+    text-align: center; /* centering text within grid items */
+    width: 90%; /* setting width for grid items*/
+}
+
+.grid-item>div{
+    width: 100%;
+}
+
+/* styling for input fields */
+input{
+    width: 80%; /* setting width for input fields */
+    border: none; /* removing default input border */
+    border-bottom: 1px solid black; /* adding bottom border */
+    padding: 0.5em; /* adding padding */
+    outline: none; /* removing outline */
+}
+
+.coffee-input-title{
+    width: 75% !important; /* setting width for input field title */
+    border-bottom: 1px solid black; /* adding bottom border */
+    padding: 0.5em; /* adding padding */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.cf-btn>input{
+    border: none !important; /* setting width for input field title */
+    background-color: #f1d9bf; /* adding botton border */
+    border-radius: 5px; /* adding border radius to button */
+    cursor: pointer; /* set cursor as pointer */
+}
+
+.bean-pic>img{
+    border-radius: 20px; /* adding border radius to image */
+}
+
+/* styling for star rating */
+.rating{
+    display: flex; /* setting display to flex for alignment */
+    flex-direction: column; /* setting flex direction to column */
+    height: 100%; /* setting height to 100% */
+    row-gap: 2em; /* adding gap between rows */
+}
+
+.star-rating{
+    display: flex; /* setting display to flex for alignment */
+    flex-direction: row-reverse; /* reversing flex direction */
+    gap: 0.2em; /* adding gap between stars*/
+    justify-content: center; /* asigning stars to the center */
+}
+
+.star-rating input{
+    opacity: 0; /* setting display to flex for alignment */
+    position: fixed; /* setting position to fixed for proper alignment */
+    left: -90000px;
+}
+
+.star-rating label:hover i,
+.star-rating input:checked ~ label i{
+    color: rgb(243, 243, 24); /* changing color of checked stars*/
+}
+
+.star-rating label i{
+    color: rgba(165, 165, 165, 0.712); /* setting default color for stars*/
+    font-size: 1.3em; /* setting font size for stars */
+    cursor: pointer; /* setting cursor to pointer */
+    text-shadow: none; /* removing text shadow */
+    transition: color 200ms, text-shadow 200ms; /* addingin transition effect*/
+}
+
+.star-rating label:hover ~ label i {
+    color: rgb(243, 243, 24); /* changing color of stars on hover */
+}
+
+/* styling for roast level select */
+.roast-lvl>select{
+    appearance: none; /* removing default appearance */
+    width: 80%; /* setting width for select */
+    cursor: pointer; /* setting cursor to pointer */
+    background-color: transparent; /* making background transparent */
+    border: 1px solid black; /* adding border */
+    padding: 0.5em; /* adding padding */
+    border-radius: 5px; /* adding border radius */
+    color: rgba(0, 0, 0, 0.534); /* setting text color */
+}
+
+/* styling for roast level icon  */
+.roast-lvl{
+    position: relative; /* setting position to relative */
+}
+
+.roast-lvl::before,
+.roast-lvl::after{
+    --size: 0.3rem; /* setting size rabiable to icon */
+    position: absolute; /* setting position to absolute for proper alighment */
+    content: ""; /* adding content */
+    right: 3rem; /* positioning icon */
+    pointer-events: none; /* disabling pointer events */
+}
+
+.roast-lvl::before{
+    border-left: var(--size) solid transparent; /* adding left border*/
+    border-right: var(--size) solid transparent; /* adding right border */
+    border-bottom: var(--size) solid black; /* adding bottom border */
+    top: 40%; /* positioning */
+}
+
+.roast-lvl::after{
+    border-left: var(--size) solid transparent; /* adding left border */
+    border-right: var(--size) solid transparent; /* adding right border */
+    border-top: var(--size) solid black; /* adding top border */
+    top:55%; /* positioning */
+}
+

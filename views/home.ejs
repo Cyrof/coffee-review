@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="home.css">
+    <script src="newRole.js" defer></script>
+    <title>This is the main web page</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="upper-container">
+            <h1>Coffee Review</h1>
+        </div>
+        <div class="inner-container">
+            <table class="coffee-table">
+                <tr id="headers">
+                    <th>Coffee</th>
+                    <th>Country</th>
+                    <th>Variety</th>
+                    <th>Roast level</th>
+                    <th>Taste</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                </tr>
+                <% if (reload) {%>
+                    <script>document.location.href='/'</script>
+                <% } %>
+                <% if (data) {%>
+                    <% for (const row in data) {%>
+                    <tr class="<%= row %>">
+                        <% data[row].split(",").forEach(elem => {%>
+                            <td><%= elem %></td>
+                        <% }); %>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+            <div class="btns">
+                <div class="newRow">
+                    <button onclick="pop_up(event)">New</button>
+                </div>
+            </div>
+            <div class="pop-up-container">            
+                <div class="coffee-form-pop-up">
+                    <form action="/" method="post" class="coffee-form">
+                        <div class="grid-item">
+                            <div class="coffee-input-title">
+                                <span>Coffee Review</span>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="rating">
+                                <div class="rating-text">
+                                    <span>What your review?</span>
+                                </div>
+                                <div class="star-rating">
+                                    <input type="radio" id="st-5" value="5" name="starRadio">
+                                    <label for="st-5"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="st-4" value="4" name="starRadio">
+                                    <label for="st-4"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="st-3" value="3" name="starRadio">
+                                    <label for="st-3"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="st-2" value="2" name="starRadio">
+                                    <label for="st-2"><i class="fa-solid fa-star"></i></label>
+                                    <input type="radio" id="st-1" value="1" name="starRadio" required>
+                                    <label for="st-1"><i class="fa-solid fa-star"></i></label>
+                                </div>
+                            </div>
+                            <div class="bean-pic">
+                                <img src="./coffee-bean-bag.jpeg" alt="coffee bean bag" width="150em" height="150em">
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="coffee-brand">
+                                <input type="text" name="cBrand" placeholder="Coffee Brand" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="coffee-name">
+                                <input type="text" name="cName" placeholder="Coffee Name" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="country">
+                                <input type="text" name="cCountry" placeholder="Country Of Origin" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="variety">
+                                <input type="text" name="cVariety" placeholder="Coffee Variety" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="roast-lvl">
+                                <select name="cRoast" required>
+                                    <option value="light">Light Roast</option>
+                                    <option value="light-medium">Light Medium Roast</option>
+                                    <option value="medium">Medium Roast</option>
+                                    <option value="medium-dark">Medium Dark Roast</option>
+                                    <option value="dark">Dark Roast</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="comment">
+                                <input type="text" name="cComment" placeholder="Comments" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="price">
+                                <input type="text" name="cPrice" placeholder="Price" required>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="cf-btn">
+                                <input type="submit" name="cSubmit" placeholder="Review">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
