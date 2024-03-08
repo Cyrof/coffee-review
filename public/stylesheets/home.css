@@ -240,3 +240,42 @@ input{
     top:55%; /* positioning */
 }
 
+/* custom right click */
+.context-menu{
+    position: absolute;
+    text-align: center;
+    /* border: 1px solid black; */
+    background-color: #c7ae94;
+    border-radius: 10px;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(44, 44, 44, 0.404);
+}
+
+.context-menu ul {
+    padding: 0;
+    margin: 0;
+    min-width: 8em;
+    list-style: none;
+}
+
+.context-menu ul li {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+#edit{
+    border-radius: 10px 10px 0 0;
+    border-bottom: 2px solid rgba(117, 117, 117, 0.281);
+}
+
+#del{
+    border-radius: 0 0 10px 10px;
+}
+
+.context-menu ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.context-menu ul li:hover{
+    background: #af977c;
+}

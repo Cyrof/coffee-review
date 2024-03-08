@@ -26,4 +26,23 @@ router.post('/', async (req, res) => {
     res.redirect(303, "/");
 });
 
+router.get('/del', async (req, res) => {
+    try{
+        if (req.query && req.query.id){
+            let savedData = await csvHandler.getData();
+            delete savedData[req.query.id];
+
+            csvHandler.updateCsv(savedData);
+
+            res.redirect(303, "/")
+        } 
+        else{
+            res.redirect(303, "/");
+        }
+    } catch (err){
+        console.error("Error: ", err);
+        res.redirect(303, "/");
+    }
+});
+
 module.exports = router;

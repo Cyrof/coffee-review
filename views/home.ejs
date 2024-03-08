@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="home.css">
     <script src="newRole.js" defer></script>
-    <title>This is the main web page</title>
+    <title>Coffee Review</title>
 </head>
 <body>
     <div class="wrapper">
@@ -29,7 +29,7 @@
                 <% } %>
                 <% if (data) {%>
                     <% for (const row in data) {%>
-                    <tr class="<%= row %>">
+                    <tr class="<%= row %> cRow">
                         <% data[row].split(",").forEach(elem => {%>
                             <td><%= elem %></td>
                         <% }); %>
@@ -120,6 +120,12 @@
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="context-menu" style="display:none">
+                <ul>
+                    <li id="edit"><a href="#">Edit</a></li>
+                    <li id="del"><a href="#">Delete</a></li>
+                </ul>
             </div>
         </div>
     </div>

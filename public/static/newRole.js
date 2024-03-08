@@ -1,3 +1,5 @@
+// import csvHandler from "../../scripts/csvHandler";
+
 // function to handle closing the pop-up when clicking outside of it
 function closePopUp(){
     // select the pop-up menu using its class
@@ -37,3 +39,33 @@ function pop_up(event){
         closePopUp();
     }
 }
+
+// const data = csvHandler.getData();
+
+// control custom right click
+$(document).ready(function() {
+    document.oncontextmenu = function (e){
+        let target = e.target.parentNode;
+
+        // console.log(target.className.includes('cRow'));
+        if (target.className.includes('cRow')){
+            e.preventDefault();
+            let dataIndex = target.className.split(" ")[0];
+
+            $(".context-menu").css({
+                top: e.pageY + "px",
+                left: e.pageX + "px",
+                display: "block"
+            });
+
+            $("#edit").children('a').attr('href', `/?id=${dataIndex}`);
+            $("#del").children('a').attr('href', `/del?id=${dataIndex}`);
+        }
+
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.context-menu').length){
+                $('.context-menu').hide()
+            }
+        })
+    };
+});

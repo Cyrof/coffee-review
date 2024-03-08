@@ -30,6 +30,21 @@ async function csvCheck(data){
     }
 }
 
+// function to update data to csv file
+async function updateCsv(data){
+    try{
+        let writer = fs.createWriteStream(coffee_path, {encoding: "utf-8", flags: "w"});
+        writer.write('Coffee,Country,Variety,Roast,Taste,Price,Rating\n');
+
+        for(row in data){
+            writer.write(data[row] + "\n");
+        }
+
+    } catch (err){
+        console.error("Error: ", err);
+    }
+}
+
 // function to write data to the csv file
 async function writeCsv(data, flag="w"){
     let writer = null
@@ -122,3 +137,4 @@ async function getData(){
 module.exports.csvCheck = csvCheck;
 module.exports.formatData = formatData;
 module.exports.getData = getData;
+module.exports.updateCsv = updateCsv;
