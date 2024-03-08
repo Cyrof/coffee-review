@@ -1,6 +1,7 @@
 FROM node:latest
 
 WORKDIR /app
+RUN mkdir /app/data
 
 COPY package*.json ./
 
