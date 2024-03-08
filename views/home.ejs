@@ -24,9 +24,6 @@
                     <th>Price</th>
                     <th>Rating</th>
                 </tr>
-                <% if (reload) {%>
-                    <script>document.location.href='/'</script>
-                <% } %>
                 <% if (data) {%>
                     <% for (const row in data) {%>
                     <tr class="<%= row %> cRow">

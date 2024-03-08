@@ -8,9 +8,9 @@ router.get('/', async (req, res) => {
     // retrieve data from the csv file
     try{
         let savedData = await csvHandler.getData();
-        res.render('../views/home', {data: savedData, reload: false});
+        res.render('../views/home', {data: savedData});
     } catch (err){
-        res.render('../views/home', {data: {}, reload: false});
+        res.render('../views/home', {data: {}});
     }
 });
 

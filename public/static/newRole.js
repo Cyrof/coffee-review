@@ -40,7 +40,6 @@ function pop_up(event){
     }
 }
 
-// const data = csvHandler.getData();
 
 // control custom right click
 $(document).ready(function() {
