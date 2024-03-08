@@ -1,7 +1,6 @@
 FROM node:latest
 
 WORKDIR /app
-RUN mkdir /app/data
 
 COPY package*.json ./
 
@@ -10,6 +9,7 @@ RUN apt upgrade -y
 
 RUN npm install
 
+RUN mkdir -p /app/data
 COPY . .
 
 EXPOSE 4000
